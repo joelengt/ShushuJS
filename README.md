@@ -1,0 +1,2 @@
+# ShushuJS
+Collection manager.
