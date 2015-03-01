@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/sergiodxa/ShushuJS/issues"
   },
-  "homepage": "https://github.com/sergiodxa/ShushuJS",
+  "homepage": "https://sergiodxa.github.io/ShushuJS",
   "devDependencies": {
     "chai": "^2.1.0",
     "chai-as-promised": "^4.2.0",
