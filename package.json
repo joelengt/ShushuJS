@@ -1,0 +1,31 @@
+{
+  "name": "ShushuJS",
+  "version": "1.0.0",
+  "description": "Collection manager.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u bdd -R spec -r test/helpers/setup -G"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergiodxa/ShushuJS.git"
+  },
+  "keywords": [
+    "collection",
+    "models",
+    "validator",
+    "schema"
+  ],
+  "author": "Sergio Daniel Xalambrí <sergio@xalambri.com.ar> (http://sergio.xalambri.com.ar/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergiodxa/ShushuJS/issues"
+  },
+  "homepage": "https://github.com/sergiodxa/ShushuJS",
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "chai-as-promised": "^4.2.0",
+    "mocha": "^2.1.0",
+    "sukimajs": "^1.0.0"
+  }
+}
