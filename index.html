@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Shushujs by sergiodxa</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Shushujs</h1>
+        <p class="header">A Collection manager.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/sergiodxa/ShushuJS/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/sergiodxa/ShushuJS/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/sergiodxa/ShushuJS">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/sergiodxa">sergiodxa</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="shushujs" class="anchor" href="#shushujs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ShushuJS</h1>
+
+<p>A Collection manager.</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Use NPM to install with the command:</p>
+
+<pre><code>npm i -S shushujs
+</code></pre>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>Import ShushuJS inside your JS file using:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> shushujs <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>shushujs<span class="pl-pds">'</span></span>);</pre></div>
+
+<p>Create your Collection passing the schema:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> Users <span class="pl-k">=</span> shushujs(schema);</pre></div>
+
+<p>Listen the 'new' event:</p>
+
+<div class="highlight highlight-javascript"><pre>Users.on(<span class="pl-s1"><span class="pl-pds">'</span>new<span class="pl-pds">'</span></span>, <span class="pl-st">function</span> (<span class="pl-vpf">err</span>, <span class="pl-vpf">evt</span>) {
+  <span class="pl-k">if</span> (err) <span class="pl-k">throw</span> err;
+  <span class="pl-c">// do something</span>
+});</pre></div>
+
+<p>Add new data:</p>
+
+<pre><code>Users.set({
+  name: 'sergiodxa',
+  email: 'sergio@xalambri.com.ar'
+});
+</code></pre>
+
+<p>If you want to use it in browser just compile it using Browserify to create a browser compatible JS file.</p>
+
+<p>Enjoy!</p>
+
+<h2>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<h3>
+<a id="setdatum" class="anchor" href="#setdatum" aria-hidden="true"><span class="octicon octicon-link"></span></a>.set(datum)</h3>
+
+<p>Add a new datum to the collection.</p>
+
+<h3>
+<a id="updateupdateddatum-value-field" class="anchor" href="#updateupdateddatum-value-field" aria-hidden="true"><span class="octicon octicon-link"></span></a>.update(updatedDatum, value, field)</h3>
+
+<p>Modify an actual datum in the collection using the <em>field</em> and <em>value</em> the find the datum and replacing it with the updatedDatum</p>
+
+<h3>
+<a id="removevalue-field" class="anchor" href="#removevalue-field" aria-hidden="true"><span class="octicon octicon-link"></span></a>.remove(value, field)</h3>
+
+<p>Remove an actual datum from the collection using the <em>field</em> and <em>value</em> the find the datum</p>
+
+<h3>
+<a id="getall" class="anchor" href="#getall" aria-hidden="true"><span class="octicon octicon-link"></span></a>.getAll()</h3>
+
+<p>Return an array with all data in the collection.</p>
+
+<h3>
+<a id="getsinglevalue-field" class="anchor" href="#getsinglevalue-field" aria-hidden="true"><span class="octicon octicon-link"></span></a>.getSingle(value, field)</h3>
+
+<p>Return a single datum from the collection using the <em>field</em> and <em>value</em> the find the datum.</p>
+
+<h2>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h2>
+
+<p>All event listeners execute a callback returning two parameters, the first is <em>error</em> and the second is the event info.</p>
+
+<h3>
+<a id="new" class="anchor" href="#new" aria-hidden="true"><span class="octicon octicon-link"></span></a>new</h3>
+
+<p>This event is emitted when a new data is setted to the collection using the method .set().</p>
+
+<p>The event info return an object with the next attributes:</p>
+
+<ul>
+<li>old: the old collection array (with out the added datum).</li>
+<li>data: the actual collection array.</li>
+<li>added: the datum added</li>
+</ul>
+
+<h3>
+<a id="updated" class="anchor" href="#updated" aria-hidden="true"><span class="octicon octicon-link"></span></a>updated</h3>
+
+<p>This event is emitted when a datum is modified in the collection using the method .update().</p>
+
+<p>The event info return an object with the next attributes:</p>
+
+<ul>
+<li>old: the old collection array (with out the added datum).</li>
+<li>data: the actual collection array.</li>
+<li>updated: an object with the attributes:</li>
+<li>* datum: the new datum.</li>
+<li>* field: the field used to find the datum.</li>
+<li>* value: the value used to find the datum.</li>
+</ul>
+
+<h3>
+<a id="removed" class="anchor" href="#removed" aria-hidden="true"><span class="octicon octicon-link"></span></a>removed</h3>
+
+<p>This event is emitted when a datum is removed from the collection using the method .remove().</p>
+
+<p>The event info return an object with the next attributes:</p>
+
+<ul>
+<li>old: the old collection array (with out the added datum).</li>
+<li>data: the actual collection array.</li>
+<li>updated: the datum removed.</li>
+</ul>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>To do tests just use the command:</p>
+
+<pre><code>npm test
+</code></pre>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Sergio Daniel Xalambrí</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48432002-6");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
