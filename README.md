@@ -15,7 +15,7 @@ Import ShushuJS inside your JS file using:
 var shushujs = require('shushujs');
 ```
 
-Create your Collection passing the schema:
+Create your Collection passing the schema (must be an SukimaJS schema):
 
 ```javascript
 var Users = shushujs(schema);
